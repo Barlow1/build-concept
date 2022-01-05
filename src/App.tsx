@@ -46,6 +46,7 @@ function House() {
         )}'), auto`;
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
 
   // Using the GLTFJSX output here to wire in app-state and hook up events
@@ -54,11 +55,13 @@ function House() {
       ref={ref}
       dispose={null}
       onPointerOver={(e: any) => (
+        // eslint-disable-next-line no-sequences
         e.stopPropagation(), set(e.object.material.name)
       )}
       onPointerOut={(e) => e.intersections.length === 0 && set(null)}
       onPointerMissed={() => (state.current = null)}
       onClick={(e: any) => (
+        // eslint-disable-next-line no-sequences
         e.stopPropagation(), (state.current = e.object.material.name)
       )}
     >
